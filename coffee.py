@@ -13,6 +13,15 @@ class Coffee:
         if len(value) < 3:
             raise ValueError("Coffee name must be at least 3 characters.")
         self._name = value
+    def orders(self):
+        from order import Order
+        
+        return [order for order in Order.all if order.coffee == self]
+
+    def customers(self):
+        from order import Order
+    
+        return list({order.customer for order in Order.all if order.coffee == self})
 
 c1 = Coffee("capuchino")
 print(c1.name)

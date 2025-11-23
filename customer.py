@@ -15,6 +15,14 @@ class Customer:
             raise ValueError("Name must be between 1 and 15 characters.")
         self._name = value
 
+    def orders(self):
+        from order import Order
+        return[order for order in Order.all if order.customer == self ]
+    
+    def coffees(self):
+        from order import Order
+        return list({order.coffee for order in Order.all if order.customer == self})
+
 
 c1 = Customer("Jane")
 print(c1.name)

@@ -1,11 +1,18 @@
 from customer import Customer
 from coffee import Coffee
 class Order:
+    all = []
+    
     def __init__(self, customer, coffee, price):
         self.customer = customer 
         self.coffee = coffee
         self.price = price
+        Order.all.append(self)
+
         print(f"Order created: {self.customer.name} ordered {self.coffee.name} for Ksh{self.price}")
+
+    def __str__(self):
+        return f"Order({self.customer.name}, {self.coffee.name}, Ksh{self.price})"
 
     @property
     def customer(self):
