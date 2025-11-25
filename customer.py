@@ -22,7 +22,26 @@ class Customer:
     def coffees(self):
         from order import Order
         return list({order.coffee for order in Order.all if order.customer == self})
+    
+    def create_oder(self,coffee, price):
+        from order import Order
+        return Order(self, coffee, price)
+    
+    @classmethod
+    def most_aficionado(cls, coffee):
+        from coffee import Coffee
+        if not isinstance(coffee, Coffee):
+            raise TypeError("Expected a Coffee instance")
 
-
-c1 = Customer("Jane")
-print(c1.name)
+        # to check if there is no otder
+        if not coffee.orders():
+            return None
+        else:
+            max_spend = 0
+            for customer in cls.all_customer:
+                spent = sum(order.price for order in customer.order if order.coffee == coffee)
+                if spent > max_spend:
+                    max_spend = max_spend
+                    top_customer = customer
+        return top_customer
+        
