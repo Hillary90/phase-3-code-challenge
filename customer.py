@@ -1,4 +1,5 @@
 class Customer:
+    all_customer = []
     
     def __init__(self,name):
         self.name = name
@@ -23,7 +24,7 @@ class Customer:
         from order import Order
         return list({order.coffee for order in Order.all if order.customer == self})
     
-    def create_oder(self,coffee, price):
+    def create_order(self,coffee, price):
         from order import Order
         return Order(self, coffee, price)
     
@@ -38,6 +39,8 @@ class Customer:
             return None
         else:
             max_spend = 0
+            top_customer = None
+            
             for customer in cls.all_customer:
                 spent = sum(order.price for order in customer.order if order.coffee == coffee)
                 if spent > max_spend:

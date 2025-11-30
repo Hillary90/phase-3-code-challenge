@@ -1,5 +1,5 @@
-from customer import Customer
-from coffee import Coffee
+# from customer import Customer
+# from coffee import Coffee
 class Order:
     all = []
     
@@ -42,13 +42,13 @@ class Order:
 
     @price.setter
     def price(self, value):
-        if not isinstance(value, int):
+        if not isinstance(value, float):
             raise TypeError("Price must be a int.")
-        if not (1 <= value <= 3000):
+        if not (1.0 <= value <= 10.0):
             raise ValueError("Price must be between 1.0 and 3000.0.")
-        self._price = value
+        self._price = float(value)
 
-customer_1 = Customer("Jane")
-coffee_type = Coffee("Capuchino")
-order_1= Order(customer_1, coffee_type, 700)
-print(order_1)
+# customer_1 = Customer("Jane")
+# coffee_type = Coffee("Capuchino")
+# order_1= Order(customer_1, coffee_type, 700)
+# print(order_1)
