@@ -41,44 +41,48 @@ The Order class acts as the single source of truth for all relationships.
 
 8. Encapsulation and defensive copying for safe object state management.
 
-Project Structure
+## Project Structure:
 
 coffee_shop/
 │
 ├── customer.py
-|
 ├── coffee.py
 ├── order.py
 ├── README.md
+├── LICENSE.md
 └── tests/
+
 
 ## Installation
 
 ##### Clone the repository:
-
-**git clone https://github.com/Hillary90/phase-3-code-challenge.git**
+bash 
+```
+git clone https://github.com/Hillary90/phase-3-code-challenge.git
 
 cd phase-3-code-challenge 
+```
 
+**Set up a virtual environment with pipenv:**
 
-Set up a virtual environment with pipenv:
-
+```
 pipenv install
 pipenv shell
+```
 
+**Install pytest for testing:**
 
-Install pytest for testing:
-
+```
 pipenv install pytest
+```
 
-
-Create objects:
+**Create objects:**
 
 Hillary = Customer("Hillary") 
 
 latte = Coffee("Latte")
 
-espresso = Coffee("Espresso")
+Cappuccino = Coffee("Cappuccino")
 
 # Create orders
 order1 = Hillary.create_order(latte, 5.0)
