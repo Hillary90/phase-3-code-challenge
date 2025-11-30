@@ -78,24 +78,24 @@ pipenv install pytest
 
 **Create objects:**
 
-Hillary = Customer("Hillary") 
+Hillary = Customer( "Hillary" ) 
 
-latte = Coffee("Latte")
+latte = Coffee( "Latte" )
 
-Cappuccino = Coffee("Cappuccino")
+Cappuccino = Coffee( "Cappuccino" )
 
 # Create orders
-order1 = Hillary.create_order(latte, 5.0)
+order1 = Hillary.create_order( latte, 5.0 )
 
-order2 = Jane.create_order(espresso, 4.5)
+order2 = Jane.create_order( espresso, 4.5 )
 
 # Check customer's coffees
-print(Jane.coffees())
+print( Jane.coffees() )
 
 # Coffee aggregate info
-print(Cappuccino.num_orders())
+print( Cappuccino.num_orders() )
 
-print(Cappuccino.average_price())
+print( Cappuccino.average_price() )
 
 
 ## Author
